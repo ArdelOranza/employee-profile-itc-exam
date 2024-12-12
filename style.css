@@ -1,0 +1,188 @@
+:root {
+    --primary-color: #6A5ACD;
+    --secondary-color: #FF6B6B;
+    --background-dark: #121212;
+    --surface-dark: #1E1E1E;
+     --text-primary: #E0E0E0;
+    --text-secondary: #B0B0B0;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body, html {
+    font-family: 'Quicksand', sans-serif;
+    background-color: var(--background-dark);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  .cosmic-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+      radial-gradient(
+        circle at top left, 
+        rgba(106, 90, 205, 0.1) 0%, 
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at bottom right, 
+        rgba(255, 107, 107, 0.1) 0%, 
+        transparent 50%
+      );
+    z-index: -1;
+  }
+
+  .container {
+    max-width: 550px;
+    margin: 50px auto;
+    background: var(--surface-dark);
+    border-radius: 25px;
+    padding: 40px;
+    box-shadow: 
+      0 20px 40px rgba(0, 0, 0, 0.3),
+      0 10px 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 10;
+    border: 2px solid rgba(106, 90, 205, 0.2);
+    transition: all 0.4s ease;
+  }
+
+  .container:hover {
+    transform: translateY(-10px);
+    box-shadow: 
+      0 25px 50px rgba(0, 0, 0, 0.4),
+      0 15px 25px rgba(0, 0, 0, 0.3);
+  }
+
+  h1 {
+    text-align: center;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 30px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    font-size: 2.2rem;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    transition: color 0.3s ease;
+  }
+
+  input, select {
+    width: 100%;
+     padding: 12px;
+     border: 2px solid rgba(106, 90, 205, 0.2);
+    border-radius: 15px;
+    background-color: #2A2A2A;
+      color: var(--text-primary);
+    font-family: 'Quicksand', sans-serif;
+     transition: all 0.3s ease;
+  }
+
+  input:focus, select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+     box-shadow: 0 0 0 4px rgba(106, 90, 205, 0.2);
+  }
+
+  .gender-group {
+    display: flex;
+      justify-content: space-between;
+    gap: 10px;
+  }
+
+  .gender-option {
+    flex: 1;
+    display: flex;
+     align-items: center;
+    background-color: #2A2A2A;
+    border-radius: 15px;
+   padding: 10px;
+    transition: all 0.3s ease;
+  }
+
+  .gender-option input {
+  margin-right: 10px;
+    width: auto;
+    accent-color: var(--primary-color);
+  }
+
+  .gender-option:hover {
+    background-color: rgba(106, 90, 205, 0.1);
+  }
+
+  button {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+     color: white;
+    border: none;
+    border-radius: 15px;
+     font-weight: 700;
+  letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    transform: perspective(500px);
+  }
+
+  button:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 25px rgba(106, 90, 205, 0.3);
+  }
+
+  #registrationConfirmation {
+    position: fixed;
+    top: 0;
+    left: 0;
+  width: 100%;
+    height: 100%;
+    background: rgba(18, 18, 18, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+  opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease;
+    backdrop-filter: blur(10px);
+  }
+
+  .confirmation-content {
+    background: var(--surface-dark);
+    padding: 40px;
+    border-radius: 25px;
+    text-align: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    transform: scale(0.7);
+    opacity: 0;
+   transition: all 0.5s ease;
+    border: 2px solid var(--primary-color);
+  }
+
+  #registrationConfirmation.show {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  #registrationConfirmation.show .confirmation-content {
+    transform: scale(1);
+    opacity: 1;
+  }
